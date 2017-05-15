@@ -1,0 +1,60 @@
+<ion-view view-title="Add family member">
+	<ion-content>
+		<div class="list">
+
+			<div class="p-t-20"></div>
+
+
+			<label class="item item-input item-select" style="border-top: 0px;">
+				<span class="input-label">User</span>
+				<select ng-model="ctrl.task.assignedTo">
+					<option ng-repeat="member in ctrl.members" value="{{member._id}}">{{member.user.name}}</option>
+				</select>
+			</label>
+
+			<label class="item item-input item-select">
+				<span class="input-label">Role</span>
+				<select>
+					<option>Dad</option>
+					<option>Mom</option>
+					<option>Son</option>
+				</select>
+			</label>
+
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Name</span>
+				<textarea placeholder="Description"></textarea>
+			</label>
+
+			<div class="row">
+				<div class="col">
+					<img style="max-width: 150px;" src="img/user.png">
+				</div>
+				<div class="col col-center">
+					<button class="button button-small button-block button-positive">
+						Change picture
+					</button>
+				</div>
+			</div>
+
+			<ion-list>
+				<ion-checkbox ng-model="ctrl.member.active">Active</ion-checkbox>
+				<ion-checkbox ng-model="ctrl.member.canCreateTask">Can create new tasks</ion-checkbox>
+				<ion-checkbox ng-model="ctrl.member.canEditTask">Can edit tasks</ion-checkbox>
+				<ion-checkbox ng-model="ctrl.member.canCreateRoom">Can create rooms</ion-checkbox>
+				<ion-checkbox ng-model="ctrl.member.canEditRoom">Can edit rooms</ion-checkbox>
+				<ion-checkbox ng-model="ctrl.member.canAddMembers">Can add family members</ion-checkbox>
+				<ion-checkbox ng-model="ctrl.member.canEditMember">can edit family members</ion-checkbox>
+			</ion-list>
+
+		</div>
+	</ion-content>
+	<div class="bar bar-footer">
+		<button class="button button-positive" style="width: 100px;">
+			<b>Save</b>
+		</button>
+		<button class="button button-positive" style="width: 100px; left: 110px;" ng-click="$ionicGoBack()">
+			Cancel
+		</button>
+	</div>
+</ion-view>

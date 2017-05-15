@@ -1,0 +1,29 @@
+<ion-view view-title="Rooms" cache-view="false">
+
+	<ion-content>
+		<div class="list card m-t-10">
+			<a class="item item-thumbnail-left item-icon-left" ng-repeat="room in ctrl.rooms" ui-sref="app.room({ roomID: room._id })">
+    			<img src="img/room-1.png">
+				<span class="f-20 f-b">{{room.title}}</span>
+				<p class="f-12 f-i" style="white-space: normal; max-height: 60px; line-height: 125%;">{{room.description}}</p>
+				<div  style="position: absolute; top: 50px; right: 50px;" ng-if="ctrl.enableDelete" ng-click="ctrl.delete(room, $event);"> 
+					<i class="icon ion-ios-trash"></i>
+				</div>
+  			</a>			  
+		</div>
+	</ion-content>
+
+	<div class="bar bar-footer">
+		<button class="button button-positive" style="width: 100px;" ui-sref="app.room">
+			<b>New</b>
+		</button>
+
+		<p class="p-l-50 p-5">Enable delete</p>
+		<label class="toggle toggle-assertive pull-right">
+       		<input type="checkbox" ng-model="ctrl.enableDelete">
+       		<div class="track">
+         		<div class="handle"></div>
+       		</div>
+     	</label>
+	</div>
+</ion-view>

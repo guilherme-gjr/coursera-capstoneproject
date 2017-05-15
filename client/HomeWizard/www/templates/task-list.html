@@ -1,0 +1,45 @@
+<ion-view view-title="Home Wizard" cache-view="false">
+	<div class="tabs tabs-icon-left tabs-top tabs-background-positive tabs-color-light blue-tab">
+		<a class="tab-item" ng-class="ctrl.activeTab == 0 ? 'active' : '' " ng-click="ctrl.showAvaiable()">
+			<i class="icon ion-home"></i> Avaiable tasks
+		</a>
+		<a class="tab-item" ng-class="ctrl.activeTab == 1 ? 'active' : '' " ng-click="ctrl.showMy()">
+			<i class="icon ion-star"></i> My Tasks
+		</a>
+	</div>
+
+
+	<ion-content style="padding-top: 40px;">
+		<div class="list card" ng-if="ctrl.tasks.length">
+			<a href="#" class="item item-thumbnail-left item-icon-left" ng-repeat="task in ctrl.tasks" ui-sref="app.task({taskID: task._id})">
+    			<img src="img/room-1.png">
+				<span class="f-20 f-b">{{task.title}}</span>
+				<p class="m-0 f-16 f-b">Reward: {{task.reward}} points</p>
+				<p class="f-12 f-i">Created by: {{task.createdBy.user.name}}</p>
+				<div  style="position: absolute; top: 50px; right: 50px;" ng-if="ctrl.enableDelete" ng-click="ctrl.delete(task, $event);"> 
+					<i class="icon ion-ios-trash"></i>
+				</div>
+  			</a>
+		</div>
+		<div ng-if="!ctrl.tasks.length">
+			<p class="p-40 f-20 t-c">
+				<i class="icon ion-thumbsup"></i> There is no tasks. =)
+			</p>
+		</div>
+	</ion-content>
+
+	<div class="bar bar-footer p-5">
+		<button class="button button-positive" style="width: 100px;" ui-sref="app.task">
+			<b>New</b>
+		</button>
+		
+		<p class="p-l-50 p-5">Enable delete</p>
+		<label class="toggle toggle-assertive pull-right">
+       		<input type="checkbox" ng-model="ctrl.enableDelete">
+       		<div class="track">
+         		<div class="handle"></div>
+       		</div>
+     	</label>
+	</div>
+
+</ion-view>

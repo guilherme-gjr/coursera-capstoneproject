@@ -1,0 +1,33 @@
+<ion-view view-title="Add/Edit room">
+	<ion-content>
+		<div class="list">
+
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Room title</span>
+				<input type="text" placeholder="Room title" ng-model="ctrl.room.title">
+			</label>
+
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Description</span>
+				<textarea placeholder="Description" ng-model="ctrl.room.description"></textarea>
+			</label>
+
+			<img class="p-20 p-b-5" style="width: 100%" src="img/room-1.png">
+
+			<div class="p-l-20 p-r-20">
+				<button class="button button-small button-block button-positive m-0">
+					Change room picture
+				</button>
+			</div>
+
+		</div>
+	</ion-content>
+	<div class="bar bar-footer">
+		<button class="button button-positive" style="width: 100px;" ng-click="ctrl.save()">
+			<b>Save</b>
+		</button>
+		<button class="button button-positive" style="width: 100px; left: 110px;" ng-click="$ionicGoBack()">
+			Cancel
+		</button>
+	</div>
+</ion-view>

@@ -1,0 +1,54 @@
+<ion-view view-title="Add/Edit task" cache-view="false">
+	<ion-content>
+		<div class="list">
+
+			<div class="p-t-20"></div>
+
+			<label class="item item-input item-select" style="border-top: 0px;">
+				<span class="input-label">Room</span>
+				<select ng-model="ctrl.task.room">
+					<option ng-repeat="room in ctrl.rooms" value="{{room._id}}">{{room.title}}</option>
+				</select>
+			</label>
+
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Task title</span>
+				<input type="text" placeholder="Task title" ng-model="ctrl.task.title">
+			</label>
+		
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Description</span>
+				<textarea placeholder="Description" ng-model="ctrl.task.description"></textarea>
+			</label>
+
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Reward</span>
+				<input type="number" placeholder="Reward" ng-model="ctrl.task.reward">
+			</label>
+
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Due date</span>
+				<input type="date" placeholder="Due date" ng-model="ctrl.task.dueDate">
+			</label>
+
+			<label class="item item-input item-select">
+				<span class="input-label">Assigned To</span>
+				<select ng-model="ctrl.task.assignedTo">
+					<option ng-repeat="member in ctrl.members" value="{{member._id}}">{{member.user.name}}</option>
+				</select>
+			</label>
+
+		</div>
+	</ion-content>
+	<div class="bar bar-footer">
+		<button class="button button-positive" style="width: 100px;" ng-click="ctrl.save()">
+			<b>Save</b>
+		</button>
+		<button class="button button-positive" style="width: 100px; left: 5px;" ng-click="$ionicGoBack()">
+			Cancel
+		</button>
+		<button class="button button-balanced">
+			Mark as completed
+		</button>		
+	</div>
+</ion-view>
